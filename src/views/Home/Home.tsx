@@ -13,8 +13,6 @@ import WinCard from './components/WinCard'
 
 const Hero = styled.div`
   align-items: center;
-  // background-image: url('/images/pizza-bg-mobile.svg');
-  // background-image: url('/images/dragon_head.svg');
   background-repeat: no-repeat;
   background-size: 100px 30px;
   background-position: top center;
@@ -57,7 +55,7 @@ const Cards = styled(BaseLayout)`
   margin-bottom: 48px;
 
   & > div {
-    grid-column: span 6;
+    grid-column: span 8;
     width: 100%;
   }
 
@@ -69,7 +67,7 @@ const Cards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 6;
+      grid-column: span 4;
     }
   }
 `
@@ -101,72 +99,26 @@ const Label = styled.div`
   padding-bottom: 10px;
 `
 
-const ImageHeader = styled.div`
-  background-image :url('/images/homeHeader.png');
-  background-size:100% 100%;
-  background-position: center center;
-  min-height : 200px;
-  background-repeat: no-repeat;
-  @media (max-width: 768px) {
-    min-height: 20vw;
-    width:60vw;
-  }
-`
-
-const AnimHeader = styled.div`
-  background-image :url('/images/anim_bus.gif');
-  background-size:100% 100%;
-  background-position: center center;
-  min-height : 200px;
-  background-repeat: no-repeat;
-  @media (max-width: 768px) {
-    min-height: 20vw;
-    width:25vw;
-  }
-`
-const Row = styled.div`
-display: flex;
-flex-direction: row;
-`
-
-const Left = styled.div`
-width: 30%;
-`
-
-const Right = styled.div`
-width: 70%;
-`
-
 const Home: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
-    <Page>
-      <Row>
-        <Left>
-          <AnimHeader />
-        </Left>
-        <Right>
-          <ImageHeader/>
-        </Right>
-      </Row>
+    <Page style={{backgroundImage: "url(/images/mainback_home.jpg)"}}>
       <Hero/>
       <div>      
       <Cards>
         <FarmStakingCard />
+        <PizzaStats />
         <LotteryCard />
       </Cards>
       <CTACards>
         <EarnAPYCard />
         <EarnAssetCard />
         <WinCard />
-      {/* </CTACards>       */}
       </CTACards>
       <Cards>
-        <PizzaStats />
         <TotalValueLockedCard />
       </Cards>
-      {/* <CTACards> */}
       </div>      
     </Page>
   )

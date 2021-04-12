@@ -10,6 +10,7 @@ declare module 'styled-components' {
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Heebo', sans-serif;
+    text-transform: uppercase;
   }
   body {
     border: 2px solid ${({ theme }) => theme.colors.bodyBorder};

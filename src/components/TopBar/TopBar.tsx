@@ -22,6 +22,8 @@ const StyledTopBar = styled.div`
   width: 100%;
   background-image: url('/images/header.png');
   background-size: 100% 100%;
+  position: relative;
+  z-index: 1;
   @media (max-width: 968px) {
     background-size: auto 100%;
     background-position: center;

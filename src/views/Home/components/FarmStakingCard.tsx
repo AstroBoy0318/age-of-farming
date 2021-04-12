@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button } from '@pizzafinance/ui-sdk'
+import { Heading, Card, CardBody, Button,PizzaTheme, BackgroundImage } from '@pizzafinance/ui-sdk'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
@@ -10,26 +10,29 @@ import PizzaHarvestBalance from './PizzaHarvestBalance'
 import PizzaWalletBalance from './PizzaWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  // background-image: url('/images/cardBack.png');
+  background-image: url('/images/cardback_home.png');
   background-repeat: no-repeat;
-  background-position: 87% 35%;
-  background-size:32% 40%;
-  background-color:rgba(73,4,118,0.6);
-  min-height: 350px;
+  background-size:100% 100%;
   text-align: center;
+  & *{
+    font-family: "Trajan Pro";
+    font-weight: bold;
+  }
 `
 
 const Block = styled.div`
-  margin-bottom: 50px;
+  margin-top: -25px;
 `
 
 const CardImage = styled.img`
-  margin-bottom: 5px;
+  box-shadow: -10px 10px 0 0 #d69f42;
+  border-radius: 50%;
+  margin-top: 5px;
 `
 
 const Label = styled.div`
-  color: #d2155e;
-  font-size: 14px;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 16px;
 `
 
 const Actions = styled.div`
@@ -42,11 +45,12 @@ const Row = styled.div`
 `
 
 const Left = styled.div`
-  width: 50%;
+  width: 45%;
+  margin-right: 10%;
 `
 
 const Right = styled.div`
-  width: 50%;
+  width: 45%;
 `
 
 const FarmedStakingCard = () => {
@@ -72,19 +76,19 @@ const FarmedStakingCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="lg" mb="24px"  color="#d2155e" style={{marginBottom:15}}>
+        <Heading size="lg" mb="24px"  color="#7f080e" style={{width: "7em", margin: "0 auto", fontFamily: "Trajan Pro", marginTop: '1em' }}>
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/cardBack.png" alt="Safetrip logo" width={120} height={120} />
+        <CardImage src="/images/cardBack.png" alt="Safetrip logo" width={70}/>
         <Block>
           <Row>
             <Left>
-              <Label>{TranslateString(544, 'TRIP to Harvest')}</Label>
               <PizzaHarvestBalance />              
+              <Label>{TranslateString(544, 'Age of Empires to Harvest')}</Label>
             </Left>
             <Right>
-              <Label>{TranslateString(546, 'TRIP in Wallet')}</Label>
-              <PizzaWalletBalance />              
+              <PizzaWalletBalance />         
+              <Label>{TranslateString(546, 'Age of Empires in Wallet')}</Label>     
             </Right>
           </Row>
         </Block>
@@ -101,7 +105,7 @@ const FarmedStakingCard = () => {
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
-            <UnlockButton fullWidth />
+            <UnlockButton className="imgBtn"/>
           )}
         </Actions>
       </CardBody>

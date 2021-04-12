@@ -14,7 +14,7 @@ const PizzaWalletBalance = () => {
 
   if (!account) {
     return (
-      <Text color="#b1aeae" style={{ lineHeight: '30px' }}>
+      <Text color="black" style={{ lineHeight: '30px' }}>
         {TranslateString(298, 'Locked')}
       </Text>
     )
