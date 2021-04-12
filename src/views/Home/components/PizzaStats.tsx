@@ -12,12 +12,13 @@ const StyledPizzaStats = styled(Card)`
   text-align: center;
   border-radius: 0;
   width: min( 365px, 100% ) !important;
-  height: 175px;
   background-color:rgba(0,0,0,0.6);
-  margin-top: 50px;
+  margin-top: 0px;
   margin-left: 0;
-  @media (max-width: 768px) {
-    margin-top: 0px;
+  height: auto;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    height: 175px;
+    margin-top: 50px;
   }
   & *{
     font-family: "Trajan Pro";

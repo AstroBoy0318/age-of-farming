@@ -16,15 +16,17 @@ import LotteryJackpot from './LotteryJackpot'
 const StyledLotteryCard = styled(Card)`
   background-image: url('/images/cardback_home.png');
   background-repeat: no-repeat;
-  background-size:100% 100%;
-  height: 320px;
-  width: calc(200% - 365px) !important;
+  background-size: 100% 100%;
+  background-position: 5px 0;
+  border-radius: 0;
   text-align: center;
-  margin-left: calc(-100% + 365px);
-  @media (max-width: 768px) {
-    width: auto !important;
-    margin-left: 0;
-    height: 360px;
+  width: auto !important;
+  margin-left: 0;
+  height: 360px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    height: 320px;
+    width: calc(200% - 365px) !important;
+    margin-left: calc(-100% + 365px);
   }
   & *{
     font-family: "Trajan Pro";

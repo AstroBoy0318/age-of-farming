@@ -13,10 +13,11 @@ const StyledFarmStakingCard = styled(Card)`
   background-image: url('/images/cardback_home.png');
   background-repeat: no-repeat;
   background-size:100% 100%;
+  border-radius: 0;
   text-align: center;
-  height: 320px;
-  @media (max-width: 768px) {
-    height: 360px;
+  height: 360px;
+  ${({ theme }) => theme.mediaQueries.sm}{
+    height: 320px;
   }
   & *{
     font-family: "Trajan Pro";

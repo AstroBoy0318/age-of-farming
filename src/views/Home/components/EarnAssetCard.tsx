@@ -7,19 +7,28 @@ import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#480864, #A00963);
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 320px;
   height: 160px;
+  text-align: center;
+  border-radius: 0px;
+  background-image: url('/images/smallcard2_back.png');
+  background-size: 100% 100%;
   ${({ theme }) => theme.mediaQueries.lg} {
-    margin: 0;
     max-width: none;
   }
   text-align: center;
+  & *{
+    font-family: "Trajan Pro";
+    font-weight: bold;
+  }
 `
-const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
-  line-height: 30px;
+const CardMidContent = styled(Heading).attrs({ size: 'lg' })`
+  font-size: 1.5em;
+  width: 7em;
+  margin: 0 auto;
+  margin-top: 5px;
 `
 const EarnAssetCard = () => {
   const latestPools: Pool[] = orderBy(pools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 2)
@@ -30,11 +39,11 @@ const EarnAssetCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading color="#d2155e" size="lg" style={{fontSize:30, marginBottom:10}}>
+        <Heading color="black" size="sm" style={{marginTop: '5px'}}>
           Earn
         </Heading>        
-        <CardMidContent color="#b1aeae" style={{ marginBottom:10}}>TRIP</CardMidContent>        
-          <Heading color="#d2155e" size="lg">
+        <CardMidContent color="#7f080e">Age of Empires</CardMidContent>
+          <Heading color="black" size="sm" style={{marginTop: '15px'}}>
             in Pools
           </Heading>
       </CardBody>

@@ -11,18 +11,24 @@ import { BLOCKS_PER_YEAR, PIZZA_PER_BLOCK, PIZZA_POOL_PID } from 'config'
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  background-color:rgba(73,4,118,0.6);
+  width: 320px;
   height: 160px;
   text-align: center;
+  border-radius: 0px;
+  background-image: url('/images/smallcard_back.png');
+  background-size: 100% 100%;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    margin: 0;
     max-width: none;
   }
+  & *{
+    font-family: "Trajan Pro";
+    font-weight: bold;
+  }
 `
-const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
-  line-height: 44px;
+
+const CardMidContent = styled(Heading).attrs({ size: 'lg' })`
+  line-height: 1.1em;
 `
 const EarnAPYCard = () => {
   const TranslateString = useI18n()
@@ -91,20 +97,23 @@ const EarnAPYCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading color="#d2155e" size="lg">
+        <Heading color="black" size="sm">
           Earn up to
         </Heading>
-        <CardMidContent color="#b1aeae">
+        <CardMidContent color="#7f080e">
           {getHighestAPY() ? (
-            `${getHighestAPY()}% ${TranslateString(736, 'APY')}`
+            `${getHighestAPY()}%`
           ) : (
             <Skeleton animation="pulse" variant="rect" height="44px" />
           )}
         </CardMidContent>
+        <CardMidContent color="#7f080e">
+          {TranslateString(736, 'APY')}
+        </CardMidContent>
         
-          <Heading color="#d2155e" size="lg">
-            in Farms
-          </Heading>
+        <Heading color="black" size="lg" style={{ fontSize: "1.3em", marginTop: "10px"}}>
+          in Farms
+        </Heading>
           
       </CardBody>
     </StyledFarmStakingCard>
