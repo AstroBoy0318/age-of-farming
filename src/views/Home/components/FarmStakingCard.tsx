@@ -14,6 +14,10 @@ const StyledFarmStakingCard = styled(Card)`
   background-repeat: no-repeat;
   background-size:100% 100%;
   text-align: center;
+  height: 320px;
+  @media (max-width: 768px) {
+    height: 360px;
+  }
   & *{
     font-family: "Trajan Pro";
     font-weight: bold;
@@ -22,6 +26,8 @@ const StyledFarmStakingCard = styled(Card)`
 
 const Block = styled.div`
   margin-top: -25px;
+  z-index: 1;
+  position: relative;
 `
 
 const CardImage = styled.img`
@@ -76,7 +82,7 @@ const FarmedStakingCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="lg" mb="24px"  color="#7f080e" style={{width: "7em", margin: "0 auto", fontFamily: "Trajan Pro", marginTop: '1em' }}>
+        <Heading size="lg" mb="24px"  color="#7f080e" style={{width: "7em", margin: "0 auto", fontFamily: "Trajan Pro", marginTop: '10px' }}>
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
         <CardImage src="/images/cardBack.png" alt="Safetrip logo" width={70}/>
@@ -95,6 +101,7 @@ const FarmedStakingCard = () => {
         <Actions>
           {account ? (
             <Button
+              className="imgBtn"
               id="harvest-all"
               disabled={balancesWithValue.length <= 0 || pendingTx}              
               onClick={harvestAllFarms}

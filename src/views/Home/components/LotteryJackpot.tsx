@@ -7,7 +7,7 @@ const LotteryJackpot = () => {
   const lotteryPrizeAmount = useTotalRewards()
 
   return (
-    <Text bold fontSize="20px" style={{color:'#b1aeae'}}>
+    <Text bold fontSize="20px" style={{color:'#7f080e'}}>
       {getBalanceNumber(lotteryPrizeAmount).toLocaleString(undefined, {
         maximumFractionDigits: 2,
       })}

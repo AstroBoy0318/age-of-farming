@@ -14,23 +14,32 @@ import PizzaWinnings from './PizzaWinnings'
 import LotteryJackpot from './LotteryJackpot'
 
 const StyledLotteryCard = styled(Card)`
-  // background-image: url('/images/ticket-bg.svg');
+  background-image: url('/images/cardback_home.png');
   background-repeat: no-repeat;
-  background-position: top right;
-  min-height: 300px;
+  background-size:100% 100%;
+  height: 320px;
+  width: calc(200% - 365px) !important;
   text-align: center;
-  background-color:rgba(73,4,118,0.6);
+  margin-left: calc(-100% + 365px);
+  @media (max-width: 768px) {
+    width: auto !important;
+    margin-left: 0;
+    height: 360px;
+  }
+  & *{
+    font-family: "Trajan Pro";
+    font-weight: bold;
+  }
 `
 const Block = styled.div`
- margin-bottom: 16px;
+ margin-top: 1em;
 `
 const CardImage = styled.img`
-  // margin-top: 10px;
-  margin-bottom: 16px;
+  box-shadow: -8px 8px 0 0 rgba(201,157,55,0.4);
 `
 const Label = styled.div`
-color: #d2155e;
- font-size: 14px;
+  color: black;
+  font-size: 14px;
 `
 const Actions = styled.div`
  display: flex;
@@ -38,18 +47,24 @@ const Actions = styled.div`
  button {
    flex: 1 0 50%;
  }
+ @media (max-width: 768px) {
+  display: block;
+ }
  `
  const Row = styled.div`
   display: flex;
   flex-direction: row;
 `
-
 const Left = styled.div`
-  width: 50%;
+  padding-top: 5%;
+  width: 30%;
 `
-
+const Center = styled.div`
+  width: 40%;
+`
 const Right = styled.div`
-  width: 50%;
+  padding-top: 5%;
+  width: 30%;
 `
 
 const Alert = styled.div`
@@ -89,37 +104,36 @@ const FarmedStakingCard = () => {
   return (
     <StyledLotteryCard>
       <CardBody>
-        <Heading size="lg" mb="20px" color="#d2155e">
-          {TranslateString(550, 'Your Lottery Winnings')}
+        <Heading mb="20px" color="#7f080e" style={{width: "min(100%,14em)", margin: "0 auto", marginTop: '1em' }}>
+          {TranslateString(550, 'Age of Empires lottery desk')}
         </Heading>
-        <CardImage src="/images/ticket-bg.png" alt="SafeTrip lottery logo" width={100} height={100} />
         <Block>
           <Row>
             <Left>
-              <Label>{TranslateString(552, 'TRIP to Collect')}</Label>
               <PizzaWinnings />
-              
+              <Label>{TranslateString(552, 'Age of Empires to Collect')}</Label>
             </Left>
+            <Center>
+              <CardImage src="/images/ticket-bg.png" alt="SafeTrip lottery logo"/>
+            </Center>
             <Right>
-              <Label>{TranslateString(554, 'Total jackpot this round')}:</Label>
               <LotteryJackpot />
+              <Label>{TranslateString(554, 'Total jackpot this round')}:</Label>
             </Right>
           </Row>
         </Block>
-        <Block>
-          <Alert>{TranslateString(554, 'Coming soon')}</Alert>
-        </Block>      
       <Actions>
         <Button
           id="dashboard-collect-winnings"
           disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
           onClick={handleClaim}
           style={{ marginRight: '8px' }}
+          className="imgBtn"
         >
           {TranslateString(556, 'Collect Winnings')}
         </Button>
         {/* <Button id="dashboard-buy-tickets" variant="secondary" onClick={onPresentBuy} disabled={lotteryHasDrawn} color="#FFFFFF"> */}
-        <Button id="dashboard-buy-tickets" disabled={lotteryHasDrawn} color="#FFFFFF">
+        <Button id="dashboard-buy-tickets" disabled={lotteryHasDrawn} className="imgBtn">
           {TranslateString(558, 'Buy Tickets')}
         </Button>
       </Actions>

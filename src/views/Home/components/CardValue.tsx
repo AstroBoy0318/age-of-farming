@@ -27,7 +27,7 @@ const CardValue: React.FC<CardValueProps> = ({ value, decimals, fontSize = '20px
   }, [value, updateValue])
 
   return (
-    <Text bold fontSize={fontSize} style={{color:'#b1aeae'}}>
+    <Text bold fontSize={fontSize} style={{color:'#7f080e'}}>
       {prefix}{countUp}
     </Text>
   )

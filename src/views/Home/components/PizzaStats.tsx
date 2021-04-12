@@ -9,10 +9,20 @@ import { getPizzaAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 
 const StyledPizzaStats = styled(Card)`
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-  background-color:rgba(73,4,118,0.6);
+  border-radius: 0;
+  width: min( 365px, 100% ) !important;
+  height: 175px;
+  background-color:rgba(0,0,0,0.6);
+  margin-top: 50px;
+  margin-left: 0;
+  @media (max-width: 768px) {
+    margin-top: 0px;
+  }
+  & *{
+    font-family: "Trajan Pro";
+    font-weight: bold;
+  }
 `
 
 const Row = styled.div`
@@ -21,6 +31,10 @@ const Row = styled.div`
   font-size: 14px;
   justify-content: space-between;
   margin-bottom: 8px;
+  color: #f4dfab;
+  & *{
+    color: #f4dfab !important;
+  }
 `
 
 const PizzaStats = () => {
@@ -35,19 +49,19 @@ const PizzaStats = () => {
   return (
     <StyledPizzaStats>
       <CardBody>
-        <Heading size="xl" mb="24px" color="#d2155e">
-          {TranslateString(534, 'TRIP Stats')}
+        <Heading size="lg" mb="24px" color="#ceac27">
+          {TranslateString(534, 'Age of Empires Stats')}
         </Heading>
         <Row>
-          <Text fontSize="14px" color="#b1aeae">{TranslateString(536, 'Total TRIP Supply')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(536, 'Total Age of Empires Supply')}</Text>
           {pizzaSupply && <CardValue fontSize="14px" value={pizzaSupply} />}
         </Row>
           <Row>
-          <Text fontSize="14px" color="#b1aeae">{TranslateString(538, 'Total TRIP Burned')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(538, 'Total Age of Empires Burned')}</Text>
           {burnedAmount && <CardValue fontSize="14px" value={burnedAmount} />}
         </Row>
         <Row>
-          <Text fontSize="14px" color="#b1aeae">{TranslateString(540, 'New TRIP/block')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(540, 'New Age of Empires/block')}</Text>
           {showBlock && <CardValue fontSize="14px" value={showBlock} />}
         </Row>
       </CardBody>
