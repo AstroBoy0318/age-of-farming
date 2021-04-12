@@ -9,6 +9,7 @@ import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 // import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 import Pools from './views/Pools'
+import TopBar from './components/TopBar'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -41,6 +42,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Menu>
         <Suspense fallback={<PageLoader />}>
+          <TopBar />
           <Switch>
             <Route path="/" exact>
               <Home />
