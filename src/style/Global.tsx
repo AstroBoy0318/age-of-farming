@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Heebo', sans-serif;
   }
   body {
+    border: 2px solid ${({ theme }) => theme.colors.bodyBorder};
     background-color: ${({ theme }) => theme.colors.background};
 
     img {
