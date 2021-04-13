@@ -66,25 +66,7 @@ const Farm: React.FC = () => {
   const [finishedPools, openPools] = partition(poolsWithApy, (pool) => pool.isFinished)
 
   return (
-    <Page>
-      <Hero>
-        <div>
-          <Heading as="h1" size="xxl" mb="16px">
-            {TranslateString(282, 'Asteroid Belt')}
-          </Heading>
-          <Heading as="h4" size="l" mb="14px" style={{color:"#b1aeae"}}>
-            {TranslateString(282, 'TRIP Staking Asset Pool')}
-          </Heading>
-          <ul style={{color:"#b1aeae"}}>
-            <li>{TranslateString(580, 'Stake TRIP or supported tokens to earn')}</li>
-            <li>{TranslateString(404, 'You can unstake at any time..')}</li>
-            <li>{TranslateString(406, 'Rewards are calculated per block.')}</li>
-          </ul>
-        </div>
-        <img src="/images/homeHeader.png" alt="BUS POOL icon" width={250} height={250} />
-      </Hero>
-      {/* <PoolTabButtons /> */}
-      <Divider />
+    <Page style={{background: "url(/images/mainback_farms.jpg)",backgroundSize:"100% 100%"}}>
       <FlexLayout>
         <Route exact path={`${path}`}>
           <>

@@ -59,15 +59,23 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
-  border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(9, 31, 67, 0.1);
+  background-image: url('/images/cardback_farms.png');
+  background-size: 100% 530px;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 50px 50px;
   position: relative;
   text-align: center;
+  ${({ theme }) => theme.mediaQueries.sm}{
+    padding: 50px 90px;
+    background-size: 100% 492px;
+  }
 `
+const BottomBar = ()=>{
+  return (<img alt="bottom" style={{width: "100%",position: "absolute",left: "0",bottom: "-12px"}} src='/images/cardbackbottom_farm.png'/>);
+}
 
 const Divider = styled.div`
   background-color: ${({ theme }) => theme.colors.borderColor};
@@ -137,8 +145,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, pizzaPrice, bnbPrice
 
     {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
-          <Text>{TranslateString(352, 'APY')}:</Text>
-          <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+          <Text bold style={{fontFamily:"Por Siempre Gti",color: "black"}} fontSize="20px">{TranslateString(352, 'APY')}:</Text>
+          <Text bold style={{ display: 'flex', alignItems: 'center',fontFamily:"Por Siempre Gti",color: "black" }} fontSize="20px">
             {farm.apy ? (
               <>
                 <ApyButton
@@ -159,11 +167,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, pizzaPrice, bnbPrice
         
       )}
       <Flex justifyContent="space-between">
-        <Text>{TranslateString(318, 'Earn')}:</Text>
-        <Text bold>{earnLabel}</Text>
+        <Text bold style={{fontFamily:"Por Siempre Gti",color: "black"}} fontSize="20px">{TranslateString(318, 'Earn')}:</Text>
+        <Text bold style={{fontFamily:"Por Siempre Gti",color: "black"}} fontSize="20px">{earnLabel}</Text>
       </Flex>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
-      <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}
         expanded={showExpandableSection}
@@ -179,6 +186,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, pizzaPrice, bnbPrice
           tokenAddresses={tokenAddresses}
         />
       </ExpandingWrapper>
+      <BottomBar/>
     </FCard>
   )
 }

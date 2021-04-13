@@ -79,7 +79,7 @@ const Lottery: React.FC = () => {
   // )
   return (
     <>
-    <Page>
+    <Page style={{background: "url(/images/mainback_lottery.jpg)",backgroundSize:"100% 100%",minHeight: "calc(100vh - 290px)"}}>
       <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
         {TranslateString(999, '')}
       </Heading>

@@ -25,19 +25,19 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Space Farm',
+    label: 'Farms',
     icon: 'FarmIcon',
     href: '/farms',
-  },
-  {
-    label: 'Asteroid Belt',
-    icon: 'PoolIcon',
-    href: '/pools',
   },
   {
     label: 'Lottery',
     icon: 'TicketIcon',
     href: '/lottery',
+  },
+  {
+    label: 'Pools',
+    icon: 'PoolIcon',
+    href: '/pools',
   },
   // {
   //   label: 'Info',

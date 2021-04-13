@@ -3,9 +3,9 @@ import { PoolConfig, QuoteToken, PoolCategory } from './types'
 const pools: PoolConfig[] = [
   {
     pastaId: 0,
-    tokenName: 'TRIP',
-    earnToken: 'TRIP',
-    stakingTokenName: QuoteToken.TRIP,
+    tokenName: 'AOE',
+    earnToken: 'AOE',
+    stakingTokenName: QuoteToken.AOE,
     stakingTokenAddress: '0xb083Bb3EC96fABd018F7FfB3122Ab3c1501a68a6',
     contractAddress: {
       97: '',

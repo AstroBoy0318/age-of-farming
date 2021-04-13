@@ -17,14 +17,20 @@ const Wrapper = styled.div`
     fill: ${({ theme }) => theme.colors.primary};
   }
 `
+const DownArrow = ()=>{
+  return (
+      <img src='/images/downarrow.png' alt='arrow' style={{margin:"0 20px"}}/>
+    );
+}
 
 const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({ onClick, expanded }) => {
   return (
     <Wrapper aria-label="Hide or show expandable content" role="button" onClick={() => onClick()}>
-      <Text color="#d2155e" bold>
+      <DownArrow/>
+      <Text color="black" bold style={{fontFamily: "Por Siempre Gti"}} fontSize="20px">
         {expanded ? 'Hide' : 'Details'}
       </Text>
-      {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      <DownArrow/>
     </Wrapper>
   )
 }

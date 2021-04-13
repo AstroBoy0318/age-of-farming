@@ -37,7 +37,8 @@ export enum QuoteToken {
   'cPIZZA' = 'cPIZZA',
   'TDCASH' = 'TDCASH',
   'TDHOARD' = 'TDHOARD',
-  'TRIP' = 'TRIP'
+  'TRIP' = 'TRIP',
+  'AOE' = 'AOE'
 }
 
 export enum PoolCategory {

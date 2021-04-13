@@ -9,12 +9,17 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Heebo', sans-serif;
+    font-family: inherit;
     text-transform: uppercase;
   }
+  @font-face {
+    font-family: "Por Siempre Gti";
+    src: url(/fonts/PorSiempreGótica.ttf);
+  }  
   body {
     border: 2px solid ${({ theme }) => theme.colors.bodyBorder};
     background-color: ${({ theme }) => theme.colors.background};
+    font-family: 'Trajan Pro', sans-serif;
 
     img {
       height: auto;

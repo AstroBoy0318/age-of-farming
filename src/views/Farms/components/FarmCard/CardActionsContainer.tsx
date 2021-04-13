@@ -13,7 +13,7 @@ import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 
 const Action = styled.div`
-  padding-top: 16px;
+  padding-top: 0px;
 `
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -63,24 +63,24 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
   return (
     <Action>
       <Flex>
-        <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
+        <Text bold textTransform="uppercase" color="primary" fontSize="22px" pr="3px" style={{fontFamily: "Por Siempre Gti"}}>
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          TRIP
+          AOE
         </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text bold textTransform="uppercase" color="primary" fontSize="22px" style={{fontFamily: "Por Siempre Gti"}}>
           {TranslateString(999, 'Earned')}
         </Text>
       </Flex>
       <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
-        <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
+        <Text bold textTransform="uppercase" color="primary" fontSize="22px" pr="3px" style={{fontFamily: "Por Siempre Gti"}}>
           {lpName}
         </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text bold textTransform="uppercase" color="primary" fontSize="22px" style={{fontFamily: "Por Siempre Gti"}}>
           {TranslateString(999, 'Staked')}
         </Text>
       </Flex>
-      {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
+      {!account ? <UnlockButton mt="8px" /> : renderApprovalOrStakeButton()}
     </Action>
   )
 }

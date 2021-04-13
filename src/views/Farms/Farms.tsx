@@ -37,8 +37,8 @@ const Farms: React.FC = () => {
     }
   }, [account, dispatch, fastRefresh])
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.pid <= 3 && farm.multiplier !== '0X')
+  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.pid > 3 && farm.multiplier === '0X')
 
   // /!\ This function will be removed soon
   // This function compute the APY for each farm and will be replaced when we have a reliable API
@@ -47,7 +47,7 @@ const Farms: React.FC = () => {
     (farmsToDisplay, removed: boolean) => {
       const pizzaPriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === PIZZA_POOL_PID)?.tokenPriceVsQuote || 0)
       const farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
+        if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken ) {
           return farm
         }
         const pizzaRewardPerBlock = PIZZA_PER_BLOCK.times(farm.poolWeight)                
@@ -109,13 +109,9 @@ const Farms: React.FC = () => {
   )
 
   return (
-    <Page>      
-      <Heading as="h3" size="lg" color="secondary" mb="70px" style={{ textAlign: 'center' , color:'#d2155e'}}>
-        {TranslateString(999, 'Stake TRIP tokens to earn TRIP')}
-      </Heading>
+    <Page style={{backgroundImage: "url(/images/mainback_farms.jpg)"}}>
       {/* <FarmTabButtons /> */}
-      <div>
-        <Divider />
+      <div style={{marginTop: "30px"}}>
         <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsList(activeFarms, false)}

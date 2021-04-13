@@ -19,7 +19,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'TRIP-BNB LP',
+    lpSymbol: 'AOE-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x2f25fd8bb88b7a02301182c2f3d912f68e36ad60',
@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 2,
-    lpSymbol: 'TRIP-BUSD LP',
+    lpSymbol: 'AOE-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x97f2705f6e50cff038ee7e68308acf7667b94fd1',
@@ -63,7 +63,7 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
     isCommunity: false,
-  },  
+  },
   {
     pid: 4,
     lpSymbol: 'USDT-BUSD LP',
@@ -109,7 +109,6 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
-    
 ]
 
 export default farms

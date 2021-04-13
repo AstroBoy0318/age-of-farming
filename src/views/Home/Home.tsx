@@ -28,8 +28,6 @@ const Hero = styled.div`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    // background-image: url('/images/home-bg.svg'), url('/images/home-bg2.svg');
-    // background-image: url('/images/home-bg.png'), url('/images/home-bg2.png');
     background-position: left center, right center;
     background-size: 30px;
     height: 30px;
