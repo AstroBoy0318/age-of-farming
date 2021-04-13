@@ -12,7 +12,7 @@ interface FarmCardActionsProps {
 }
 
 const HarvestButton = styled(Button)`
-  background: url('/images/harvestbtn_back.png') !important;
+  background: url('/images/${({ disabled, color, theme }) => (disabled ? 'harvestbtn_back.png' : 'farmunlockbtn_back.png')}') !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat;
   padding-top: 5px;

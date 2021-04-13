@@ -81,10 +81,12 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
-  background: ${(props) => (!props.disabled ? props.theme.card.background : `#ddd`)};
+  background-image: url(/images/${(props) => (!props.disabled ? 'farmunlockbtn_back' : `harvestbtn_back`)}.png);
+  background-size: 100% 100%;
+  background-color: transparent !important;
   border: 0;
-  border-radius: 12px;
-  color: ${(props) => (!props.disabled ? `#2ab770` : `#acaaaf`)};
+  border-radius: 0px;
+  color: ${(props) => (!props.disabled ? `#f3c901` : `#acaaaf`)};
   cursor: pointer;
   display: flex;
   font-size: ${(props) => props.fontSize}px;
@@ -96,7 +98,6 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding-right: ${(props) => props.padding}px;
   pointer-events: ${(props) => (!props.disabled ? undefined : 'none')};
   width: 100%;
-  border: 2px solid ${(props) => (!props.disabled ? `#2ab770` : `#eee`)};
   width: 100px;
   height: 30px;
   font-size: 14px;

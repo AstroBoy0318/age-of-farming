@@ -10,7 +10,7 @@ const Card = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
   position: relative;  
   ${({ theme }) => theme.mediaQueries.sm}{
     padding: 20px 50px;
-    background-size: 100% 492px;
+    background-size: 100% 455px;
   }
 `
 

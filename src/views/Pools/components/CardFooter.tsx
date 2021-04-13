@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import BigNumber from 'bignumber.js'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import Balance from 'components/Balance'
 import { CommunityTag, CoreTag, BinanceTag } from 'components/Tags'
 import { PoolCategory } from 'config/constants/types'
+import { Link } from '@pizzafinance/ui-sdk'
 
 const tags = {
   [PoolCategory.BINANCE]: BinanceTag,
@@ -26,14 +27,13 @@ interface Props {
 
 const StyledFooter = styled.div<{ isFinished: boolean }>`
   color: ${({ isFinished, theme }) => theme.colors[isFinished ? 'textDisabled2' : 'primary2']};
-  padding: 24px;
+  padding: 0 24px;
 `
 
 const StyledDetailsButton = styled.button`
   align-items: center;
-  background-color: transparent;
+  background: transparent;
   border: 0;
-  color: ${(props) => props.theme.colors.primary};
   cursor: pointer;
   display: inline-flex;
   font-size: 16px;
@@ -52,7 +52,7 @@ const StyledDetailsButton = styled.button`
 `
 
 const Details = styled.div`
-  margin-top: 24px;
+  margin-top: 10px;
 `
 
 const Row = styled.div`
@@ -64,13 +64,24 @@ const FlexFull = styled.div`
   flex: 1;
 `
 const Label = styled.div`
-  font-size: 14px;
+  font-size: 20px;
+  font-family: Por Siempre Gti;
 `
 const TokenLink = styled.a`
-  font-size: 14px;
+  font-size: 22px;
   text-decoration: none;
-  color: #12aab5;
+  font-family: "Por Siempre Gti";
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-shadow:0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35;
+  margin: 10px 0;
 `
+const DownArrow = ()=>{
+  return (
+    <img src='/images/downarrow.png' alt='arrow' style={{margin:"0 20px"}}/>
+  );
+}
 
 const CardFooter: React.FC<Props> = ({
   projectLink,
@@ -87,21 +98,24 @@ const CardFooter: React.FC<Props> = ({
 
   const handleClick = () => setIsOpen(!isOpen)
   const Tag = tags[poolCategory]
+  const {colors} = useContext(ThemeContext)
 
   return (
     <StyledFooter isFinished={isFinished}>
       <Row>
-        <FlexFull>
-          <Tag />
-        </FlexFull>
-        <StyledDetailsButton onClick={handleClick}>
-          {isOpen ? 'Hide' : 'Details'} <Icon />
+        {/* <FlexFull> */}
+        {/*  <Tag /> */}
+        {/* </FlexFull> */}
+        <StyledDetailsButton onClick={handleClick} style={{color:"black",width: "100%"}}>
+          <DownArrow/>
+          {isOpen ? 'Hide' : 'Details'}
+          <DownArrow/>
         </StyledDetailsButton>
       </Row>
       {isOpen && (
-        <Details>
-          <Row style={{ marginBottom: '4px' }}>
-            <FlexFull>
+        <Details style={{fontFamily: "Por Siempre Gti", paddingBottom: "5px"}}>
+          <Row>
+            <FlexFull style={{flex:1}}>
               <Label>
                 <span role="img" aria-label="pasta">
                   {' '}
@@ -109,22 +123,22 @@ const CardFooter: React.FC<Props> = ({
                 {TranslateString(408, 'Total Stake of')} {tokenName}:
               </Label>
             </FlexFull>
-            <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} />            
+            <Balance fontSize="20px" isDisabled={isFinished} value={getBalanceNumber(totalStaked)} color={colors.primary} style={{flex:1,textAlign:"right"}}/>
           </Row>
           {blocksUntilStart > 0 && (
             <Row>
-              <FlexFull>
+              <FlexFull style={{flex:1}}>
                 <Label>{TranslateString(410, 'Start')}:</Label>
               </FlexFull>
-              <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
+              <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} style={{flex:1,textAlign:"right"}}/>
             </Row>
           )}
           {blocksUntilStart === 0 && blocksRemaining > 0 && (
             <Row>
-              <FlexFull>
+              <FlexFull style={{flex:1}}>
                 <Label>{TranslateString(410, 'End Block of Stake')}:</Label>
               </FlexFull>
-              <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
+              <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} style={{flex:1,textAlign:"right"}}/>
             </Row>
           )}
           <TokenLink href={projectLink} target="_blank">

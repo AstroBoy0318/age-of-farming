@@ -37,8 +37,8 @@ const Farms: React.FC = () => {
     }
   }, [account, dispatch, fastRefresh])
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.pid <= 3 && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.pid > 3 && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
+  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
 
   // /!\ This function will be removed soon
   // This function compute the APY for each farm and will be replaced when we have a reliable API
