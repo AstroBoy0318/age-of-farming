@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Image, Card, CardBody } from '@pizzafinance/ui-sdk'
 import { useWinningNumbers, useMatchingRewardLength } from 'hooks/useTickets'
@@ -14,14 +14,15 @@ const WinningNumbers: React.FC = () => {
   const MatchedNumber3 = useMatchingRewardLength(3)
   const MatchedNumber2 = useMatchingRewardLength(2)
   const TranslateString = useI18n()
+  const { colors } = useContext(ThemeContext)
 
   return (
-    <CardWrapper>
+    <CardWrapper style={{backgroundImage:"url(/images/winningnumber_back.png)",backgroundSize: "100% 100%"}}>
       <Card>
         <CardBody>
           <StyledCardContentInner>
             <StyledCardHeader>
-              <Title>
+              <Title style={{color:colors.primary,fontSize: "18px"}}>
                 {account && lotteryHasDrawn
                   ? `🥳${TranslateString(570, 'Winning Numbers This Round')}🥳`
                   : TranslateString(572, 'Latest Winning Numbers')}
@@ -31,7 +32,7 @@ const WinningNumbers: React.FC = () => {
             <Row>
               {winNumbers.map((number, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <TicketNumberBox key={index}>
+                <TicketNumberBox key={index} style={{backgroundImage: "url(/images/winningnumber".concat((index+1).toString()).concat("_back.png")}}>
                   <CenteredText>{number}</CenteredText>
                 </TicketNumberBox>
               ))}
@@ -80,7 +81,7 @@ const WinningNumbers: React.FC = () => {
                 </CardImage>
               </RabbitBoxSmall>
             </RabbitRowSmall>
-            <Column>
+            <Column style={{color:"black",fontFamily: "Por Siempre Gti"}}>
               <RowNoPadding>
                 <CenteredTextWithPadding>{TranslateString(442, 'Tickets matching 4 numbers:')}</CenteredTextWithPadding>
                 <CenteredTextWithPadding>
@@ -100,7 +101,7 @@ const WinningNumbers: React.FC = () => {
                 </CenteredTextWithPadding>
               </RowNoPadding>
             </Column>
-            <Link href="https://api.pizzafinance.app/api/lottery?page=0&pageSize=25" target="_blank">
+            <Link href="https://api.pizzafinance.app/api/lottery?page=0&pageSize=25" target="_blank" style={{color:colors.primary,fontSize:"16px",textAlign:"center"}}>
               {TranslateString(448, 'Export recent winning numbers')}
             </Link>
           </StyledCardContentInner>
@@ -184,8 +185,7 @@ const CenteredTextWithPadding = styled.div`
 
 const TicketNumberBox = styled.div`
   padding: 10px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #dcb46d 0%, #d0a860  76.22%);
+  background-size: 100% 100%;
   color: white;
   font-size: 20px;
   font-weight: 900;
@@ -221,7 +221,8 @@ const StyledCardHeader = styled.div`
   flex-direction: column;
 `
 
-const CardWrapper = styled.div``
+const CardWrapper = styled.div`
+`
 
 const Title = styled.div`
   color: ${(props) => props.theme.colors.secondary};

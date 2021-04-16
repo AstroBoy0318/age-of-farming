@@ -39,6 +39,7 @@ const IconWrapper = styled.div`
   svg {
     width: 48px;
     height: 48px;
+    fill: ${({ theme }) => theme.colors.primary}
   }
 `
 
@@ -60,23 +61,23 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
   return (
     <StyledCard isSecondCard={isSecondCard}>
       <CardBody>
-        <CardHeader>
-          <IconWrapper>
+        <CardHeader style={{justifyContent:"center"}}>
+          <IconWrapper color="primary">
             <TicketRound />
           </IconWrapper>
           {lotteryHasDrawn ? (
             <TicketCountWrapper>
-              <Text fontSize="14px" color="textSubtle">
+              <Text fontSize="14px" color="primary">
                 {TranslateString(999, 'Until ticket sale:')}
               </Text>
-              <Heading size="lg">{timeUntilTicketSale}</Heading>
+              <Heading size="lg" color="primary">{timeUntilTicketSale}</Heading>
             </TicketCountWrapper>
           ) : (
             <TicketCountWrapper>
-              <Text fontSize="14px" color="textSubtle">
+              <Text fontSize="14px" color="primary">
                 {TranslateString(999, 'Your tickets for this round')}
               </Text>
-              <Heading size="lg">{ticketsLength}</Heading>
+              <Heading size="lg" color="primary">{ticketsLength}</Heading>
             </TicketCountWrapper>
           )}
         </CardHeader>

@@ -54,10 +54,10 @@ const TicketCard: React.FC = () => {
     if (!allowance.toNumber()) {
       return (
         <>
-          <Button fullWidth disabled>
+          <Button fullWidth disabled className="imgBtn">
             {TranslateString(432, 'View your tickets')}
           </Button>
-          <Button fullWidth disabled={requestedApproval} onClick={handleApprove}>
+          <Button fullWidth disabled={requestedApproval} onClick={handleApprove} className="imgBtn">
             {TranslateString(999, 'Approve DCASH')}
           </Button>
         </>
@@ -71,10 +71,11 @@ const TicketCard: React.FC = () => {
           disabled={ticketsLength === 0}
           variant="secondary"
           onClick={onPresentMyTickets}
+          className="imgBtn"
         >
           {TranslateString(432, 'View your tickets')}
         </Button>
-        <Button id="lottery-buy-start" fullWidth onClick={onPresentBuy}>
+        <Button id="lottery-buy-start" fullWidth onClick={onPresentBuy} className="imgBtn">
           {TranslateString(430, 'Buy ticket')}
         </Button>
       </>
@@ -84,7 +85,7 @@ const TicketCard: React.FC = () => {
   return (
     <CardActions>
       {lotteryHasDrawn ? (
-        <Button disabled> {TranslateString(999, 'On sale')}</Button>
+        <Button disabled className="imgBtn" style={{margin: "0 auto"}}> {TranslateString(999, 'On sale')}</Button>
       ) : (
         renderLotteryTicketButtons()
       )}

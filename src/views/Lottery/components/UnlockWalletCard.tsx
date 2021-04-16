@@ -26,12 +26,9 @@ const UnlockWalletCard = () => {
   const TranslateString = useI18n()
 
   return (
-    <Card isActive>
+    <Card isActive style={{boxShadow: "none"}}>
       <StyledCardBody>
-        <IconWrapper>
-          <Ticket />
-        </IconWrapper>
-        <StyledHeading size="md">{TranslateString(999, 'Unlock wallet to access lottery')}</StyledHeading>
+        <StyledHeading size="md" style={{textAlign:"center",padding: "10px 0"}} color="primary">{TranslateString(999, 'Unlock wallet to access lottery')}</StyledHeading>
         <UnlockButton />
       </StyledCardBody>
     </Card>

@@ -63,31 +63,31 @@ const PrizesWonContent: React.FC = () => {
 
   return (
     <StyledCardContentInner>
-      <IconWrapper>
-        <Won />
-      </IconWrapper>
-      <Heading as="h3" size="lg" color="secondary">
+      {/* <IconWrapper> */}
+      {/*  <Won /> */}
+      {/* </IconWrapper> */}
+      <Heading as="h3" size="lg" color="primary">
         {TranslateString(999, 'You won!')}
       </Heading>
       {claimLoading && <Loading />}
       {!claimLoading && (
         <>
           <WinningsWrapper>
-            <Heading as="h4" size="xl" style={{ marginRight: '6px' }}>
+            <Heading as="h4" size="xl" color="primary" style={{ marginRight: '6px' }}>
               {winnings}
             </Heading>
-            <Heading as="h4" size="lg">
+            <Heading as="h4" size="lg" color="primary">
               PIZZA
             </Heading>
           </WinningsWrapper>
         </>
       )}
       <StyledCardActions>
-        <Button fullWidth disabled={requestedClaim} onClick={handleClaim}>
+        <Button fullWidth disabled={requestedClaim} onClick={handleClaim} className="imgBtn">
           {TranslateString(999, 'Collect')}
         </Button>
       </StyledCardActions>
-      <StyledButton variant="text" onClick={onPresentMyTickets}>
+      <StyledButton variant="text" onClick={onPresentMyTickets} style={{background:"transparent"}}>
         {TranslateString(432, 'View your tickets')}
       </StyledButton>
     </StyledCardContentInner>

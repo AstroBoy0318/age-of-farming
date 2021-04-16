@@ -16,7 +16,7 @@ const Cards = styled(BaseLayout)`
   margin-bottom: 32px;
 
   & > div {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -27,7 +27,7 @@ const Cards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 6;
+      grid-column: span 4;
     }
   }
 `
@@ -49,7 +49,12 @@ const NextDrawPage: React.FC = () => {
         <div>
           <TotalPrizesCard />
         </div>
-        <SecondCardColumnWrapper isAWin={isAWin}>
+        <div>
+          <HowItWorks />
+          {/* legacy page content */}
+          <WinningNumbers />
+        </div>
+        <SecondCardColumnWrapper isAWin={isAWin} style={{backgroundImage:'url(/images/lotteryback.png)',backgroundSize: '100% 100%'}}>
           {!account ? (
             <UnlockWalletCard />
           ) : (
@@ -60,9 +65,6 @@ const NextDrawPage: React.FC = () => {
           )}
         </SecondCardColumnWrapper>
       </Cards>
-      <HowItWorks />
-      {/* legacy page content */}
-      <WinningNumbers />
     </>
   )
 }

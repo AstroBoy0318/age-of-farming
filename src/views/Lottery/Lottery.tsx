@@ -58,42 +58,42 @@ const Lottery: React.FC = () => {
     setActiveIndex(index)
   }
 
-  // return (
-  //   <>
-  //     <Hero />
-  //     <Page>
-  //       <Wrapper>
-  //         <ButtonMenu activeIndex={activeIndex} onClick={handleClick} size="sm" variant="subtle">
-  //           <ButtonMenuItem>{TranslateString(999, 'Next draw')}</ButtonMenuItem>
-  //           <ButtonMenuItem>{TranslateString(999, 'Past draws')}</ButtonMenuItem>
-  //         </ButtonMenu>
-  //       </Wrapper>
-  //       <Divider />
-  //       <PastLotteryDataContext.Provider
-  //         value={{ historyError, historyData, mostRecentLotteryNumber, currentLotteryNumber }}
-  //       >
-  //         {activeIndex === 0 ? <NextDrawPage /> : <PastDrawsPage />}
-  //       </PastLotteryDataContext.Provider>
-  //     </Page>
-  //   </>
-  // )
   return (
     <>
-    <Page style={{background: "url(/images/mainback_lottery.jpg)",backgroundSize:"100% 100%",minHeight: "calc(100vh - 290px)"}}>
-      <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(999, '')}
-      </Heading>
-      <div>
-        <FlexLayout>
-            <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-              {TranslateString(999, 'Coming Soon')}
-            </Heading>
-        </FlexLayout>
-      </div>
-    </Page>
-      
+      <Hero />
+      <Page style={{backgroundImage:"url(/images/mainback_lottery.jpg)"}}>
+        <Wrapper>
+          <ButtonMenu activeIndex={activeIndex} onClick={handleClick} size="sm" variant="primary">
+            <ButtonMenuItem>{TranslateString(999, 'Next draw')}</ButtonMenuItem>
+            <ButtonMenuItem>{TranslateString(999, 'Past draws')}</ButtonMenuItem>
+          </ButtonMenu>
+        </Wrapper>
+        <Divider />
+        <PastLotteryDataContext.Provider
+          value={{ historyError, historyData, mostRecentLotteryNumber, currentLotteryNumber }}
+        >
+          {activeIndex === 0 ? <NextDrawPage /> : <PastDrawsPage />}
+        </PastLotteryDataContext.Provider>
+      </Page>
     </>
   )
+  // return (
+  //   <>
+  //   <Page style={{background: "url(/images/mainback_lottery.jpg)",backgroundSize:"100% 100%",minHeight: "calc(100vh - 290px)"}}>
+  //     <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
+  //       {TranslateString(999, '')}
+  //     </Heading>
+  //     <div>
+  //       <FlexLayout>
+  //           <Heading as="h1" size="lg" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
+  //             {TranslateString(999, 'Coming Soon')}
+  //           </Heading>
+  //       </FlexLayout>
+  //     </div>
+  //   </Page>
+  //
+  //   </>
+  // )
 }
 
 export default Lottery

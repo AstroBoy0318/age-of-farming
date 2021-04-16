@@ -13,14 +13,13 @@ const StyledCard = styled(Card)`
         margin-top: 16px;
         background-color: unset;
         box-shadow: unset;
-        border: 1px solid ${props.theme.colors.textDisabled};
 
         ${props.theme.mediaQueries.sm} {
-          margin-top: 24px;
+          margin-top: 10px;
         }
 
         ${props.theme.mediaQueries.lg} {
-          margin-top: 32px;
+          margin-top: 10px;
         }
         `
       : ``}
@@ -33,8 +32,8 @@ const YourPrizesCard: React.FC = () => {
   const isAWin = winnings > 0
 
   return (
-    <StyledCard isDisabled={!isAWin} isActive={isAWin}>
-      <CardBody>{isAWin ? <PrizesWonContent /> : <NoPrizesContent />}</CardBody>
+    <StyledCard isDisabled={!isAWin} isActive={isAWin} color="primary">
+      <CardBody style={{paddingTop: 0}}>{isAWin ? <PrizesWonContent /> : <NoPrizesContent />}</CardBody>
     </StyledCard>
   )
 }

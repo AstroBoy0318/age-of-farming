@@ -37,10 +37,10 @@ const NoPrizesContent: React.FC = () => {
 
   return (
     <Wrapper>
-      <Image src="/images/no-prize.svg" alt="no prizes won" />
-      <TextWrapper>
-        <StyledText color="textDisabled">{TranslateString(999, 'Sorry, no prizes to collect')}</StyledText>
-        <StyledButton variant="text" onClick={onPresentMyTickets}>
+      {/* <Image src="/images/no-prize.svg" alt="no prizes won" /> */}
+      <TextWrapper style={{width: "100%"}}>
+        <StyledText color="black" style={{margin: "0 auto"}}>{TranslateString(999, 'Sorry, no prizes to collect')}</StyledText>
+        <StyledButton variant="text" onClick={onPresentMyTickets} style={{background:"transparent",margin:"0 auto"}}>
           {TranslateString(432, 'View your tickets')}
         </StyledButton>
       </TextWrapper>
