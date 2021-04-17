@@ -20,7 +20,7 @@ const Cards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 6;
+      grid-column: span 4;
     }
   }
 `
@@ -39,13 +39,13 @@ const BunnyImageWrapper = styled.div`
 const PastDrawsPage: React.FC = () => {
   return (
     <Cards>
+      <div style={{gridColumn: "span 1"}}> </div>
       <PastLotteryRoundViewer />
-      <SecondCardColumnWrapper>
+      <div style={{gridColumn: "span 2"}}> </div>
+      <SecondCardColumnWrapper style={{backgroundImage:"url(/images/winninggraph_back.png)",backgroundSize: "100% 100%",padding: "5%",paddingRight: "2%"}}>
         <PastDrawsHistoryCard />
-        <BunnyImageWrapper>
-          <img src="/images/pizza-lottery-bg.png" alt="lottery dcash" />
-        </BunnyImageWrapper>
       </SecondCardColumnWrapper>
+      <div style={{gridColumn: "span 1"}}> </div>
     </Cards>
   )
 }

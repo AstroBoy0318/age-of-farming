@@ -60,8 +60,8 @@ const Lottery: React.FC = () => {
 
   return (
     <>
-      <Hero />
       <Page style={{backgroundImage:"url(/images/mainback_lottery.jpg)"}}>
+        <Hero />
         <Wrapper>
           <ButtonMenu activeIndex={activeIndex} onClick={handleClick} size="sm" variant="primary">
             <ButtonMenuItem>{TranslateString(999, 'Next draw')}</ButtonMenuItem>

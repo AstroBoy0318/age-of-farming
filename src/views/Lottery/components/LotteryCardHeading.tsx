@@ -9,7 +9,7 @@ interface HeadingProps {
 }
 
 const IconWrapper = styled.div`
-  margin-right: 16px;
+  margin-right: 10%;
   svg {
     width: 48px;
     height: 48px;
@@ -18,17 +18,18 @@ const IconWrapper = styled.div`
 
 const LotteryCardHeading: React.FC<HeadingProps> = ({ valueToDisplay, children, Icon, ...props }) => {
   return (
-    <Flex {...props}>
+    <Flex {...props}
+          style={{justifyContent:"center"}}>
       {Icon && (
         <IconWrapper>
           <Icon />
         </IconWrapper>
       )}
       <Flex flexDirection="column">
-        <Text fontSize="14px" color="textSubtle">
+        <Text fontSize="14px" color="black" style={{fontFamily:"Por Siempre Gti"}}>
           {children}
         </Text>
-        <Heading size="lg">{valueToDisplay}</Heading>
+        <Heading size="lg" color="black" style={{fontFamily:"Por Siempre Gti"}}>{valueToDisplay}</Heading>
       </Flex>
     </Flex>
   )

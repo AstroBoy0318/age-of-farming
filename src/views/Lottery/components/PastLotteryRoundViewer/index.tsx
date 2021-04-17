@@ -85,7 +85,7 @@ const PastLotteryRoundViewer = () => {
           </StyledCardBody>
         </Card>
       ) : (
-        <PastRoundCard error={error} data={roundData} />
+        <PastRoundCard error={error} data={roundData}/>
       )}
     </Wrapper>
   )

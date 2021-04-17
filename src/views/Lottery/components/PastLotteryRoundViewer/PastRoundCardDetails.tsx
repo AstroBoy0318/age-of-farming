@@ -20,7 +20,8 @@ const CardHeading = styled.div`
 `
 
 const TopLotteryCardHeading = styled(LotteryCardHeading)`
-  margin-bottom: ${(props) => props.theme.spacing[4]}px;
+  margin-bottom: ${(props) => props.theme.spacing[2]}px;
+  color: black;
 `
 
 const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => {
@@ -41,11 +42,11 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
     !data.error &&
     data && (
       <>
-        <CardBody>
+        <CardBody style={{padding: "45px 13% 0 10%"}}>
           <CardHeading>
-            <Timestamp timeValue={lotteryDate} />
-            <Heading size="md" mb="24px">
-              Round #{lotteryNumber}
+            {/* <Timestamp timeValue={lotteryDate} /> */}
+            <Heading size="lg" color="primary" style={{textAlign:"center",width: "70%",margin: "0 auto"}}>
+              Round Number {lotteryNumber}
             </Heading>
             <TopLotteryCardHeading
               valueToDisplay={`${lotteryNumbers[0]}, ${lotteryNumbers[1]}, ${lotteryNumbers[2]}, ${lotteryNumbers[3]}`}
@@ -54,7 +55,7 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
               {TranslateString(999, 'Winning numbers')}
             </TopLotteryCardHeading>
             <LotteryCardHeading
-              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} DCASH`)}
+              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} AOE`)}
               Icon={PizzaRoundIcon}
             >
               {TranslateString(999, 'Total prizes')}

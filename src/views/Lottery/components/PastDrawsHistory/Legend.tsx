@@ -6,6 +6,7 @@ import useI18n from 'hooks/useI18n'
 const Wrapper = styled.div`
   display: flex;
   margin: 36px 0 28px;
+  font-family: Por Siempre Gti;
 `
 
 const LegendItem = styled.div`
@@ -18,7 +19,7 @@ const Circle = styled.div<{ isPoolSize?: boolean }>`
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  background-color: ${({ isPoolSize, theme }) => theme.colors[isPoolSize ? 'textSubtle' : 'primary']};
+  background-color: ${({ isPoolSize, theme }) => isPoolSize ?'#0042a4':theme.colors.primary};
   margin-right: 6px;
 `
 
@@ -29,11 +30,11 @@ const Legend = () => {
     <Wrapper>
       <LegendItem>
         <Circle isPoolSize />
-        <Text>{TranslateString(999, 'Pool Size')}</Text>
+        <Text color="#0042a4">{TranslateString(999, 'Pool Size')}</Text>
       </LegendItem>
       <LegendItem>
         <Circle />
-        <Text>{TranslateString(999, 'Burned')}</Text>
+        <Text color="primary">{TranslateString(999, 'Burned')}</Text>
       </LegendItem>
     </Wrapper>
   )

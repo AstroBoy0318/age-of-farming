@@ -15,6 +15,11 @@ const Grid = styled.div<{ pastDraw?: boolean }>`
   display: grid;
   grid-template-columns: repeat(${(props) => (props.pastDraw ? 3 : 2)}, 1fr);
   grid-template-rows: repeat(4, auto);
+  padding:0 10%;
+  font-family: Por Siempre Gti;
+  & > div{
+    margin-bottom: 0;
+  }
 `
 
 const RightAlignedText = styled(Text)`
@@ -49,33 +54,33 @@ const PrizeGrid: React.FC<PrizeGridProps> = ({
   return (
     <Grid pastDraw={pastDraw}>
       <GridItem>
-        <Text fontSize="14px" color="black">
+        <Text fontSize="16px" color="black">
           {TranslateString(999, 'No. Matched')}
         </Text>
       </GridItem>
       {pastDraw && (
         <PastDrawGridItem>
-          <RightAlignedText fontSize="14px" color="black">
+          <RightAlignedText fontSize="16px" color="black">
             {TranslateString(999, 'Winners')}
           </RightAlignedText>
         </PastDrawGridItem>
       )}
       <GridItem>
-        <RightAlignedText fontSize="14px" color="black">
+        <RightAlignedText fontSize="16px" color="black">
           {TranslateString(999, 'Prize Pot')}
         </RightAlignedText>
       </GridItem>
       {/* 4 matches row */}
       <GridItem>
-        <Heading size="md" color="black">4</Heading>
+        <Heading fontSize="16px !important" color="black">4</Heading>
       </GridItem>
       {pastDraw && (
         <PastDrawGridItem>
-          <RightAlignedHeading size="md" color="black">{jackpotMatches}</RightAlignedHeading>
+          <RightAlignedHeading fontSize="16px !important" color="black">{jackpotMatches}</RightAlignedHeading>
         </PastDrawGridItem>
       )}
       <GridItem>
-        <RightAlignedHeading size="md" color="black">{fourMatchesAmount.toLocaleString()}</RightAlignedHeading>
+        <RightAlignedHeading fontSize="16px !important" color="black">{fourMatchesAmount.toLocaleString()}</RightAlignedHeading>
       </GridItem>
       {/* 3 matches row */}
       <GridItem>
@@ -83,11 +88,11 @@ const PrizeGrid: React.FC<PrizeGridProps> = ({
       </GridItem>
       {pastDraw && (
         <PastDrawGridItem>
-          <RightAlignedText bold color="black">{threeTicketMatches}</RightAlignedText>
+          <RightAlignedText fontSize="16px" bold color="black">{threeTicketMatches}</RightAlignedText>
         </PastDrawGridItem>
       )}
       <GridItem>
-        <RightAlignedText color="black">{threeMatchesAmount.toLocaleString()}</RightAlignedText>
+        <RightAlignedText fontSize="16px" color="black">{threeMatchesAmount.toLocaleString()}</RightAlignedText>
       </GridItem>
       {/* 2 matches row */}
       <GridItem marginBottom="20px">
@@ -95,26 +100,26 @@ const PrizeGrid: React.FC<PrizeGridProps> = ({
       </GridItem>
       {pastDraw && (
         <PastDrawGridItem marginBottom="20px">
-          <RightAlignedText color="black">{twoTicketMatches}</RightAlignedText>
+          <RightAlignedText fontSize="16px" color="black">{twoTicketMatches}</RightAlignedText>
         </PastDrawGridItem>
       )}
       <GridItem marginBottom="20px">
-        <RightAlignedText color="black">{twoMatchesAmount.toLocaleString()}</RightAlignedText>
+        <RightAlignedText fontSize="16px" color="black">{twoMatchesAmount.toLocaleString()}</RightAlignedText>
       </GridItem>
       {/* Burn row */}
       <GridItem marginBottom="0">
-        <Text color="black">{TranslateString(999, `${pastDraw ? 'Burned' : 'To burn'}`)}:</Text>
+        <Text fontSize="16px" color="black">{TranslateString(999, `${pastDraw ? 'Burned' : 'To burn'}`)}:</Text>
       </GridItem>
       {pastDraw ? (
         <>
           <GridItem marginBottom="0" />
           <GridItem marginBottom="0">
-            <RightAlignedText color="black">{burnAmount.toLocaleString()}</RightAlignedText>
+            <RightAlignedText fontSize="16px" color="black">{burnAmount.toLocaleString()}</RightAlignedText>
           </GridItem>
         </>
       ) : (
         <GridItem marginBottom="0">
-          <RightAlignedText color="black">{burnAmount.toLocaleString()}</RightAlignedText>
+          <RightAlignedText fontSize="16px" color="black">{burnAmount.toLocaleString()}</RightAlignedText>
         </GridItem>
       )}
     </Grid>

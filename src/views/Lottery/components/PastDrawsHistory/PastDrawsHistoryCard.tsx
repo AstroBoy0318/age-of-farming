@@ -10,7 +10,7 @@ const PastDrawsHistoryCard: React.FC = () => {
   return (
     <Card>
       <CardBody>
-        <Heading size="md">{TranslateString(999, 'History')}</Heading>
+        <Heading size="md" color="primary" style={{textAlign:"center"}}>{TranslateString(999, 'History')}</Heading>
         <Legend />
         <HistoryChart />
       </CardBody>
