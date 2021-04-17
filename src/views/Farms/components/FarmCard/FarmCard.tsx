@@ -60,12 +60,12 @@ const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
   background-image: url('/images/cardback_farms.png');
-  background-size: 100% 530px;
+  background-size: 100% 510px;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 50px 50px;
+  padding: 50px 15%;
   position: relative;
   text-align: center;
   ${({ theme }) => theme.mediaQueries.sm}{

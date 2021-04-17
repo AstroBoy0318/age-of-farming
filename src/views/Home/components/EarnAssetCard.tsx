@@ -42,7 +42,7 @@ const EarnAssetCard = () => {
         <Heading color="black" size="sm" style={{marginTop: '5px'}}>
           Earn
         </Heading>        
-        <CardMidContent color="#7f080e">Age of Empires</CardMidContent>
+        <CardMidContent color="#7f080e">Age of Farming</CardMidContent>
           <Heading color="black" size="sm" style={{marginTop: '15px'}}>
             in Pools
           </Heading>

@@ -38,7 +38,7 @@ export enum QuoteToken {
   'TDCASH' = 'TDCASH',
   'TDHOARD' = 'TDHOARD',
   'TRIP' = 'TRIP',
-  'AOE' = 'AOE'
+  'AOF' = 'AOF'
 }
 
 export enum PoolCategory {

@@ -22,10 +22,13 @@ const MultiplierTag = styled(Text)`
   margin-left: 4px;
   margin-top: 5px; 
   font-color: #d7ad05;
-  font-size: 13px; 
+  font-size: 7px; 
   font-family: Trajan Pro;
   width: 100%;
   text-align: right;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 13px;
+  }
 `
 const RedBlock = styled.span`
   background: url('/images/redblock_back.jpg');
@@ -38,6 +41,10 @@ const BlackBlock = styled.span`
   border-radius: 15px;
   padding: 5px 10px;
   box-shadow: -1px 1px 0 0 black;
+  font-size: 7px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 13px;
+  }
 `
 
 const CardHeading: React.FC<ExpandableSectionProps> = ({

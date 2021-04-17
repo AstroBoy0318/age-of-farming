@@ -7,6 +7,7 @@ const Page = styled(Container)`
   padding-bottom: 16px;
   background-size: auto 100%;
   background-position: right;
+  min-height: calc(100vh - 300px);
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 24px;

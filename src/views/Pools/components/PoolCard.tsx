@@ -115,7 +115,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <Card isActive={isCardActive} isFinished={isFinished && pastaId !== 0}>
       {isFinished && pastaId !== 0 && <PoolFinishedSash />}
-      <div style={{ padding: '24px',paddingBottom:"0" }}>
+      <div style={{ padding: '24px 10%',paddingBottom:"0" }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ flex: 1,display: "flex" }}>
             <Image src={`/images/tokens/${image || tokenName}.png`} width={64} height={64} alt={tokenName} />
@@ -125,36 +125,41 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           </div>
         </div>
         <div style={{fontFamily:"Por Siempre Gti",display: "flex"}}>
-          <div style={{flex: 1,textAlign: 'center'}}>
+          <div style={{flex: 1,textAlign: 'center',marginBottom: "10%"}}>
             {!isOldPasta ? (
               <BalanceAndCompound>
-                <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} color={colors.primary}/>
+                <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} color={colors.primary} style={{flex: 1}}/>
                 {pastaId === 0 && account && harvest && (
-                  <HarvestButton
-                    disabled={!earnings.toNumber() || pendingTx}
-                    text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(999, 'Compound')}
-                    onClick={onPresentCompound}
-                  />
+                  <div style={{flex: 1}}>
+                    <HarvestButton
+                      disabled={!earnings.toNumber() || pendingTx}
+                      text={pendingTx ? TranslateString(999, 'Compounding') : TranslateString(999, 'Compound')}
+                      onClick={onPresentCompound}
+                    />
+                  </div>
                 )}
               </BalanceAndCompound>
             ) : (
               <OldPastaTitle hasBalance={accountHasStakedBalance} />
             )}
-            <Label isFinished={isFinished && pastaId !== 0} text={TranslateString(330, `${earnToken} earned`)} style={{fontSize: "20px"}}/>
-          </div>
-          {account && harvest && !isOldPasta && (
-            <div style={{flex: 1}}>
-            <HarvestButton
-              disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? 'Collecting' : 'Harvest'}
-              onClick={async () => {
-                setPendingTx(true)
-                await onReward()
-                setPendingTx(false)
-              }}
-            />
+            <div style={{display: "flex"}}>
+              <Label isFinished={isFinished && pastaId !== 0} text={TranslateString(330, `${earnToken} earned`)} style={{fontSize: "20px",flex: 1}}/>
+
+              {account && harvest && !isOldPasta && (
+                <div style={{flex:1}}>
+                  <HarvestButton
+                    disabled={!earnings.toNumber() || pendingTx}
+                    text={pendingTx ? 'Collecting' : 'Harvest'}
+                    onClick={async () => {
+                      setPendingTx(true)
+                      await onReward()
+                      setPendingTx(false)
+                    }}
+                  />
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
         <StyledCardActions>
           {!account && <UnlockButton />}

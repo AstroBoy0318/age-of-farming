@@ -91,11 +91,11 @@ const FarmedStakingCard = () => {
           <Row>
             <Left>
               <PizzaHarvestBalance />              
-              <Label>{TranslateString(544, 'Age of Empires to Harvest')}</Label>
+              <Label>{TranslateString(544, 'Age of Farming to Harvest')}</Label>
             </Left>
             <Right>
               <PizzaWalletBalance />         
-              <Label>{TranslateString(546, 'Age of Empires in Wallet')}</Label>     
+              <Label>{TranslateString(546, 'Age of Farming in Wallet')}</Label>
             </Right>
           </Row>
         </Block>

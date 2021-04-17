@@ -5,7 +5,7 @@ const pools: PoolConfig[] = [
     pastaId: 0,
     tokenName: 'AOE',
     earnToken: 'AOE',
-    stakingTokenName: QuoteToken.AOE,
+    stakingTokenName: QuoteToken.AOF,
     stakingTokenAddress: '0xb083Bb3EC96fABd018F7FfB3122Ab3c1501a68a6',
     contractAddress: {
       97: '',

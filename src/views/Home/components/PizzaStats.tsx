@@ -49,20 +49,20 @@ const PizzaStats = () => {
   const showBlock = dcashPerBlock ? getBalanceNumber(dcashPerBlock) : 0;
   return (
     <StyledPizzaStats>
-      <CardBody>
+      <CardBody style={{padding: "24px 10px"}}>
         <Heading size="lg" mb="24px" color="#ceac27">
-          {TranslateString(534, 'Age of Empires Stats')}
+          {TranslateString(534, 'Age of Farming Stats')}
         </Heading>
         <Row>
-          <Text fontSize="14px" color="#f4dfab">{TranslateString(536, 'Total Age of Empires Supply')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(536, 'Total Age of Farming Supply')}</Text>
           {pizzaSupply && <CardValue fontSize="14px" value={pizzaSupply} />}
         </Row>
           <Row>
-          <Text fontSize="14px" color="#f4dfab">{TranslateString(538, 'Total Age of Empires Burned')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(538, 'Total Age of Farming Burned')}</Text>
           {burnedAmount && <CardValue fontSize="14px" value={burnedAmount} />}
         </Row>
         <Row>
-          <Text fontSize="14px" color="#f4dfab">{TranslateString(540, 'New Age of Empires/block')}</Text>
+          <Text fontSize="14px" color="#f4dfab">{TranslateString(540, 'New Age of Farming/block')}</Text>
           {showBlock && <CardValue fontSize="14px" value={showBlock} />}
         </Row>
       </CardBody>

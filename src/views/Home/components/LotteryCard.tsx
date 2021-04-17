@@ -107,13 +107,13 @@ const FarmedStakingCard = () => {
     <StyledLotteryCard>
       <CardBody>
         <Heading mb="20px" color="#7f080e" style={{width: "min(100%,14em)", margin: "0 auto", marginTop: '1em' }}>
-          {TranslateString(550, 'Age of Empires lottery desk')}
+          {TranslateString(550, 'Age of Farming lottery desk')}
         </Heading>
         <Block>
           <Row>
             <Left>
               <PizzaWinnings />
-              <Label>{TranslateString(552, 'Age of Empires to Collect')}</Label>
+              <Label>{TranslateString(552, 'Age of Farming to Collect')}</Label>
             </Left>
             <Center>
               <CardImage src="/images/ticket-bg.png" alt="SafeTrip lottery logo"/>

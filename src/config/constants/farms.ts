@@ -19,7 +19,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'AOE-BNB LP',
+    lpSymbol: 'AOF-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x2f25fd8bb88b7a02301182c2f3d912f68e36ad60',
@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 2,
-    lpSymbol: 'AOE-BUSD LP',
+    lpSymbol: 'AOF-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x97f2705f6e50cff038ee7e68308acf7667b94fd1',

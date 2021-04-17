@@ -156,7 +156,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed }) => {
       </Label>
       <Label>
         <span>{TranslateString(318, 'Earn')}</span>
-        <span className="right">{farm.dual ? farm.dual.earnLabel : 'TRIP'}</span>
+        <span className="right">{farm.dual ? farm.dual.earnLabel : 'AOF'}</span>
       </Label>
       {!removed && (
         <Label>

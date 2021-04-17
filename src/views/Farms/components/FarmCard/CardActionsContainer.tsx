@@ -14,6 +14,10 @@ import HarvestAction from './HarvestAction'
 
 const Action = styled.div`
   padding-top: 0px;
+  margin-left: -5%;
+  ${({ theme }) => theme.mediaQueries.sm}{
+    margin: 0;
+  }
 `
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -65,7 +69,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
       <Flex>
         <Text bold textTransform="uppercase" color="primary" fontSize="22px" pr="3px" style={{fontFamily: "Por Siempre Gti"}}>
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          AOE
+          AOF
         </Text>
         <Text bold textTransform="uppercase" color="primary" fontSize="22px" style={{fontFamily: "Por Siempre Gti"}}>
           {TranslateString(999, 'Earned')}
