@@ -13,12 +13,16 @@ import MyTicketsModal from './UserTicketsModal'
 import PurchaseWarningModal from './PurchaseWarningModal'
 
 const CardActions = styled.div`
-  display: flex;
   justify-content: center;
   margin-top: ${(props) => props.theme.spacing[3]}px;
+  & > button{
+    width: 100%;
+  }    
+  display: block;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     justify-content: space-between;
+    display: flex;
   }
 `
 
@@ -58,7 +62,7 @@ const TicketCard: React.FC = () => {
             {TranslateString(432, 'View your tickets')}
           </Button>
           <Button fullWidth disabled={requestedApproval} onClick={handleApprove} className="imgBtn">
-            {TranslateString(999, 'Approve DCASH')}
+            {TranslateString(999, 'Approve AOF')}
           </Button>
         </>
       )

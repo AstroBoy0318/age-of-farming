@@ -17,7 +17,7 @@ const StyledPizzaStats = styled(Card)`
   margin-left: 0;
   height: auto;
   ${({ theme }) => theme.mediaQueries.sm} {
-    height: 175px;
+    height: max-content;
     margin-top: 50px;
   }
   & *{
@@ -49,7 +49,7 @@ const PizzaStats = () => {
   const showBlock = dcashPerBlock ? getBalanceNumber(dcashPerBlock) : 0;
   return (
     <StyledPizzaStats>
-      <CardBody style={{padding: "24px 10px"}}>
+      <CardBody style={{padding: "24px 10px",paddingBottom: "5px"}}>
         <Heading size="lg" mb="24px" color="#ceac27">
           {TranslateString(534, 'Age of Farming Stats')}
         </Heading>

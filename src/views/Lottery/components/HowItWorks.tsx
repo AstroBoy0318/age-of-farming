@@ -36,7 +36,7 @@ const HowItWorks = () => {
       <Text fontSize="16px" color="black">
         {TranslateString(
           999,
-          'Spend DCASH to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',
+          'Spend AOF to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',
         )}
       </Text>
       <StyledLink href="#">Read more</StyledLink>

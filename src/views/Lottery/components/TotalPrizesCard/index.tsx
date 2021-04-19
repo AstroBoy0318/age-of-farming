@@ -62,11 +62,11 @@ const TotalPrizesCard = () => {
     <Card style={{backgroundImage: 'url(/images/cardback_home.png)',backgroundSize: '100% 100%',borderRadius: 0}}>
       <CardBody style={{paddingBottom: 0}}>
         {account && (
-          <Flex mb="16px" alignItems="center" justifyContent="space-between" style={{ height: '20px' }}>
+          <Flex mb="16px" alignItems="center" justifyContent="space-between" style={{ height: '20px',marginBottom: 0,marginTop: '10px' }}>
             {currentLotteryNumber === 0 && <Skeleton height={20} width={56} />}
             {currentLotteryNumber > 0 && (
               <>
-                <Text fontSize="12px" style={{ fontWeight: 600 }}>{`Round #${currentLotteryNumber}`}</Text>
+                <Text fontSize="18px" style={{ fontWeight: 600,margin: "0 auto" }} color="primary">{`Round ${currentLotteryNumber}`}</Text>
               </>
             )}
           </Flex>
@@ -77,7 +77,7 @@ const TotalPrizesCard = () => {
               <Text fontSize="22px" color="primary" style={{paddingTop: '15px'}}>
                 {TranslateString(999, 'Total Pot')}
               </Text>
-              <Heading size="lg" style={{color:colors.primary, display:"none"}}>{lotteryPrizeWithCommaSeparators} DCASH</Heading>
+              <Heading size="lg" style={{color:colors.primary, display:"none"}}>{lotteryPrizeWithCommaSeparators} AOF</Heading>
             </PrizeCountWrapper>
           </Left>
         </CardHeading>

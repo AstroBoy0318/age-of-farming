@@ -77,7 +77,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
               <Text fontSize="14px" color="primary">
                 {TranslateString(999, 'Your tickets for this round')}
               </Text>
-              <Heading size="lg" color="primary">{ticketsLength}</Heading>
+              <Heading size="lg" color="primary" style={{textAlign:"center"}}>{ticketsLength}</Heading>
             </TicketCountWrapper>
           )}
         </CardHeader>

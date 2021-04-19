@@ -101,7 +101,7 @@ const WinningNumbers: React.FC = () => {
                 </CenteredTextWithPadding>
               </RowNoPadding>
             </Column>
-            <Link href="https://api.pizzafinance.app/api/lottery?page=0&pageSize=25" target="_blank" style={{color:colors.primary,fontSize:"16px",textAlign:"center"}}>
+            <Link href="https://api.pizzafinance.app/api/lottery?page=0&pageSize=25" target="_blank" style={{color:colors.primary,fontSize:"16px",textAlign:"center",textShadow: "0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35"}}>
               {TranslateString(448, 'Export recent winning numbers')}
             </Link>
           </StyledCardContentInner>

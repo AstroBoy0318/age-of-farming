@@ -76,17 +76,17 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         availableSymbol="DCASH"
       />
       <div>
-        <Tips>{TranslateString(456, 'Your amount must be a multiple of 1 DCASH')}</Tips>
-        <Tips>{TranslateString(458, '1 Ticket = 1 DCASH')}</Tips>
+        <Tips>{TranslateString(456, 'Your amount must be a multiple of 1 AOF')}</Tips>
+        <Tips>{TranslateString(458, '1 Ticket = 1 AOF')}</Tips>
       </div>
       <div>
         <Announce>
           {TranslateString(
             478,
-            'Ticket purchases are final. Your DCASH cannot be returned to you after buying tickets.',
+            'Ticket purchases are final. Your AOF cannot be returned to you after buying tickets.',
           )}
         </Announce>
-        <Final>{TranslateString(460, `You will spend: ${pizzaCosts(val)} DCASH`)}</Final>
+        <Final>{TranslateString(460, `You will spend: ${pizzaCosts(val)} AOF`)}</Final>
       </div>
       <ModalActions>
         <Button fullWidth variant="secondary" onClick={onDismiss}>
