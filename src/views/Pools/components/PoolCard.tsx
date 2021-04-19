@@ -115,7 +115,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   return (
     <Card isActive={isCardActive} isFinished={isFinished && pastaId !== 0}>
       {isFinished && pastaId !== 0 && <PoolFinishedSash />}
-      <div style={{ padding: '24px 10%',paddingBottom:"0" }}>
+      <div style={{ padding: '24px 13% 0 10%' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ flex: 1,display: "flex" }}>
             <Image src={`/images/tokens/${image || tokenName}.png`} width={64} height={64} alt={tokenName} />

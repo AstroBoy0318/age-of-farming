@@ -9,7 +9,7 @@ const Card = styled.div<{ isActive?: boolean; isFinished?: boolean }>`
   flex-direction: column;
   position: relative;  
   ${({ theme }) => theme.mediaQueries.sm}{
-    padding: 20px 50px;
+    padding: 20px 3%;
     background-size: 100% 490px;
   }
 `

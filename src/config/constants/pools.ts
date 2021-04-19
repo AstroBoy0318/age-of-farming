@@ -3,8 +3,8 @@ import { PoolConfig, QuoteToken, PoolCategory } from './types'
 const pools: PoolConfig[] = [
   {
     pastaId: 0,
-    tokenName: 'AOE',
-    earnToken: 'AOE',
+    tokenName: 'AOF',
+    earnToken: 'AOF',
     stakingTokenName: QuoteToken.AOF,
     stakingTokenAddress: '0xb083Bb3EC96fABd018F7FfB3122Ab3c1501a68a6',
     contractAddress: {
