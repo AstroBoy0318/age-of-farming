@@ -9,9 +9,11 @@ import useTokenBalance from 'hooks/useTokenBalance'
 import { useMultiClaimLottery } from 'hooks/useBuyLottery'
 import { useTotalClaim } from 'hooks/useTickets'
 
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import PizzaWinnings from './PizzaWinnings'
 import LotteryJackpot from './LotteryJackpot'
+import UnlockButton from '../../../components/UnlockButton'
 
 const StyledLotteryCard = styled(Card)`
   background-image: url('/images/cardback_home.png');
@@ -40,7 +42,7 @@ const CardImage = styled.img`
   box-shadow: -8px 8px 0 0 rgba(201,157,55,0.4);
 `
 const Label = styled.div`
-  color: black;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 14px;
 `
 const Actions = styled.div`
@@ -86,6 +88,7 @@ const FarmedStakingCard = () => {
   const { onMultiClaim } = useMultiClaimLottery()
 
   const pizzaBalance = useTokenBalance(getPizzaAddress())
+  const { account } = useWallet()
 
 
   const handleClaim = useCallback(async () => {
@@ -125,19 +128,27 @@ const FarmedStakingCard = () => {
           </Row>
         </Block>
       <Actions>
-        <Button
-          id="dashboard-collect-winnings"
-          disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
-          onClick={handleClaim}
-          style={{ marginRight: '8px' }}
-          className="imgBtn"
-        >
-          {TranslateString(556, 'Collect Winnings')}
-        </Button>
-         <Button id="dashboard-buy-tickets" variant="primary" onClick={onPresentBuy} disabled={lotteryHasDrawn} className="imgBtn">
-        {/* <Button id="dashboard-buy-tickets" disabled={lotteryHasDrawn} className="imgBtn"> */}
-          {TranslateString(558, 'Buy Tickets')}
-        </Button>
+        {account ? (
+          <>
+            <Button
+              id="dashboard-collect-winnings"
+              disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
+              onClick={handleClaim}
+              style={{ marginRight: '8px' }}
+              className="imgBtn"
+            >
+              {TranslateString(556, 'Collect Winnings')}
+            </Button>
+             <Button id="dashboard-buy-tickets" variant="primary" onClick={onPresentBuy} disabled={lotteryHasDrawn} className="imgBtn">
+            {/* <Button id="dashboard-buy-tickets" disabled={lotteryHasDrawn} className="imgBtn"> */}
+              {TranslateString(558, 'Buy Tickets')}
+            </Button>
+          </>
+          ):(
+            <div style={{margin:"0 auto"}}>
+              <UnlockButton className="imgBtn"/>
+            </div>
+          )}
       </Actions>
       </CardBody>
     </StyledLotteryCard>
