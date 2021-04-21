@@ -5,8 +5,9 @@ const Page = styled(Container)`
   margin-top: -20px;
   padding-top: 16px;
   padding-bottom: 16px;
-  background-size: auto 100%;
-  background-position: right;
+  background-size: auto 100%; 
+  background-attachment: fixed;
+  background-position: center;
   min-height: calc(100vh - 300px);
 
   ${({ theme }) => theme.mediaQueries.sm} {

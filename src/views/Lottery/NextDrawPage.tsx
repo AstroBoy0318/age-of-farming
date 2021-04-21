@@ -46,14 +46,11 @@ const NextDrawPage: React.FC = () => {
   return (
     <>
       <Cards>
+        <div style={{gridColumn: "span 1"}}> </div>
         <div>
           <TotalPrizesCard />
         </div>
-        <div>
-          <HowItWorks />
-          {/* legacy page content */}
-          <WinningNumbers />
-        </div>
+        <div style={{gridColumn: "span 2"}}> </div>
         <SecondCardColumnWrapper isAWin={isAWin} style={{backgroundImage:'url(/images/lotteryback.png)',backgroundSize: '100% 100%'}}>
           {!account ? (
             <UnlockWalletCard />
@@ -64,6 +61,16 @@ const NextDrawPage: React.FC = () => {
             </>
           )}
         </SecondCardColumnWrapper>
+        <div style={{gridColumn: "span 1"}}> </div>
+      </Cards>
+      <Cards>
+        <div> </div>
+        <div>
+          <HowItWorks />
+          {/* legacy page content */}
+          <WinningNumbers />
+        </div>
+        <div> </div>
       </Cards>
     </>
   )
