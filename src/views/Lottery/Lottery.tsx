@@ -4,14 +4,15 @@ import { ButtonMenu, ButtonMenuItem, Heading } from '@pizzafinance/ui-sdk'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import PastLotteryDataContext from 'contexts/PastLotteryDataContext'
 import { getLotteryIssueIndex } from 'utils/lotteryUtils'
-import useI18n from 'hooks/useI18n'
-import { useLottery } from 'hooks/useContract'
 import Page from 'components/layout/Page'
 import FlexLayout from 'components/layout/Flex'
+import useI18n from '../../hooks/useI18n'
+import { useLottery } from '../../hooks/useContract'
 import Hero from './components/Hero'
 import Divider from './components/Divider'
 import NextDrawPage from './NextDrawPage'
 import PastDrawsPage from './PastDrawsPage'
+import {lotteryHistory} from '../../api/lottery/lotteryHistory'
 
 const Wrapper = styled.div`
   position: relative;
@@ -31,14 +32,22 @@ const Lottery: React.FC = () => {
   const [currentLotteryNumber, setCurrentLotteryNumber] = useState(0)
   const [mostRecentLotteryNumber, setMostRecentLotteryNumber] = useState(1)
 
+  // useEffect(() => {
+  //   fetch(`https://api.pizzafinance.app/api/lotteryHistory`)
+  //     .then((response) => response.json())
+  //     .then((data) => setHistoryData(data))
+  //     .catch(() => {
+  //       setHistoryError(true)
+  //     })
+  // }, [])
   useEffect(() => {
-    fetch(`https://api.pizzafinance.app/api/lotteryHistory`)
-      .then((response) => response.json())
-      .then((data) => setHistoryData(data))
-      .catch(() => {
-        setHistoryError(true)
-      })
-  }, [])
+    lotteryHistory()
+    .then((data) =>{
+      setHistoryData(data)
+      setHistoryError(false)
+    }
+  )
+},[])
 
   useEffect(() => {
     const getInitialLotteryIndex = async () => {

@@ -76,7 +76,6 @@ export const usePriceBnbBusd = (): BigNumber => {
 export const usePricePizzaBusd = (): BigNumber => {
   const pid = 1 // PIZZA-BNB LP
   const bnbPriceUSD = usePriceBnbBusd()
-  // alert(bnbPriceUSD);
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
 }
@@ -94,7 +93,7 @@ export const usePriceCakeBnb = (): BigNumber => {
 }
 
 export const usePriceEthBnb = (): BigNumber => {
-  const pid = 5 // USDT-BNB LP // 3
+  const pid = 6 // USDT-BNB LP // 3
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(1).div(farm.tokenPriceVsQuote) : ZERO
 }
@@ -113,22 +112,22 @@ export const useTotalValue = (): BigNumber => {
   const cakePrice = usePriceCakeBnb()
   const ethPrice = usePriceEthBnb()
   let value = new BigNumber(0);
-  /*
-  for (let i = 0; i < farms.length; i++) {
-    const farm = farms[i]
-    if (farm.lpTotalInQuoteToken) {
-      let val;
-      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }else if (farm.quoteTokenSymbol === QuoteToken.DCASH) {
-        val = (dcashPrice.times(farm.lpTotalInQuoteToken));
-      }else{
-        val = (farm.lpTotalInQuoteToken);
-      }
-      value = value.plus(val);
-    }
-  }
-  */
+  
+  // for (let i = 0; i < farms.length; i++) {
+  //   const farm = farms[i]
+  //   if (farm.lpTotalInQuoteToken) {
+  //     let val;
+  //     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+  //       val = (bnbPrice.times(farm.lpTotalInQuoteToken));
+  //     }else if (farm.quoteTokenSymbol === QuoteToken.DCASH) {
+  //       val = (dcashPrice.times(farm.lpTotalInQuoteToken));
+  //     }else{
+  //       val = (farm.lpTotalInQuoteToken);
+  //     }
+  //     value = value.plus(val);
+  //   }
+  // }
+  
 
   for(let i = 0 ; i < farms.length; i ++ ){
     const farm = farms[i]
@@ -139,7 +138,7 @@ export const useTotalValue = (): BigNumber => {
       if(farm.quoteTokenSymbol === QuoteToken.CAKE) tmp = tmp.times(bnbPrice).times(cakePrice)
       if(farm.quoteTokenSymbol === QuoteToken.ETH) tmp = tmp.times(bnbPrice).times(ethPrice)
 
-      val = tmp.times(farm.lpTotalInQuoteToken)
+      val = tmp.times(farm.lpTotalInQuoteToken)          
       value = value.plus(val)
     }
   }

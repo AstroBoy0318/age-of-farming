@@ -61,7 +61,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
 }
 
 export const pastaUnstake = async (pastaChefContract, amount, account) => {
-  if (pastaChefContract.options.address === '0xBe5ce846f49F02270C42899cafdE8cB729bC75C9') {
+  if (pastaChefContract.options.address === '0xeBA924b9870dD9cb19b812CfDe5C5289b1a9F3EF') {
     return pastaChefContract.methods
       .emergencyWithdraw()
       .send({ from: account })
@@ -69,7 +69,7 @@ export const pastaUnstake = async (pastaChefContract, amount, account) => {
         return tx.transactionHash
       })
   }
-  if (pastaChefContract.options.address === '0xBe5ce846f49F02270C42899cafdE8cB729bC75C9') {
+  if (pastaChefContract.options.address === '0xeBA924b9870dD9cb19b812CfDe5C5289b1a9F3EF') {
     return pastaChefContract.methods
       .emergencyWithdraw()
       .send({ from: account })

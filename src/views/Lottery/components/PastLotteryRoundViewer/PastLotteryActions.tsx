@@ -44,8 +44,8 @@ const TicketCard: React.FC<{ contractLink?: string; lotteryNumber?: number }> = 
 
   return (
     <Wrapper>
-      <div>
-        <Button disabled={ticketsLength === 0} onClick={onPresentMyTickets} fullWidth>
+      <div style={{textAlign:"center"}}>
+        <Button disabled={ticketsLength === 0} onClick={onPresentMyTickets} className="imgBtn">
           {TranslateString(999, 'View your tickets')}
         </Button>
       </div>

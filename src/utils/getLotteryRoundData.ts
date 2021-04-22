@@ -1,3 +1,5 @@
+import {Lottery} from '../api/lottery/singleLottery'
+
 export type DataResponse = {
   lotteryNumber: number
   lotteryDate: string
@@ -20,10 +22,11 @@ export type DataResponse = {
 /**
  * Get data for a specific lottery
  */
-const getLotteryRoundData = async (lotteryNumber: number): Promise<DataResponse> => {
+const getLotteryRoundData = async (lotteryNumber: number) /*: Promise<DataResponse> */ => {
   try {
-    const response = await fetch(`https://api.pizzafinance.app/api/singleLottery?lotteryNumber=${lotteryNumber}`)
-    const data = await response.json()
+    // const response = await fetch(`https://api.pizzafinance.app/api/singleLottery?lotteryNumber=${lotteryNumber}`)
+    // const data = await response.json()
+    const data = await Lottery(lotteryNumber)
 
     return data
   } catch (error) {

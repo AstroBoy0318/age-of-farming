@@ -29,7 +29,7 @@ const useGetRecentLotteryRoundData = (): GetRecentLotteryRoundDataReturn => {
       }
     }
 
-    if (mostRecentLotteryNumber > 0) {
+    if (mostRecentLotteryNumber >= 0) {
       fetchRecentLotteryData()
     }
   }, [mostRecentLotteryNumber, setData, setIsLoading, setError])

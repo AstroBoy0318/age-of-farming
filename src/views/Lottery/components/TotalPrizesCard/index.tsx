@@ -75,7 +75,7 @@ const TotalPrizesCard = () => {
           <Left>
             <PrizeCountWrapper>
               <Text fontSize="22px" color="primary" style={{paddingTop: '15px'}}>
-                {TranslateString(999, 'Total Pot')}
+                {TranslateString(999, 'Total Pot:')} {lotteryPrizeWithCommaSeparators} AOF
               </Text>
               <Heading size="lg" style={{color:colors.primary, display:"none"}}>{lotteryPrizeWithCommaSeparators} AOF</Heading>
             </PrizeCountWrapper>
