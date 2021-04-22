@@ -27,8 +27,8 @@ const StyledLotteryCard = styled(Card)`
   height: 360px;
   ${({ theme }) => theme.mediaQueries.sm} {
     height: 320px;
-    width: calc(200% - 365px) !important;
-    margin-left: calc(-100% + 365px);
+    /*width: calc(200% - 365px) !important;*/
+    /*margin-left: calc(-100% + 365px);*/
   }
   & *{
     font-family: "Trajan Pro";

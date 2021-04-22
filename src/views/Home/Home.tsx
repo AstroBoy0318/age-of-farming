@@ -55,11 +55,13 @@ const Cards = styled(BaseLayout)`
   & > div {
     grid-column: span 8;
     width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
-      grid-column: span 8;
+      grid-column: 2/span 10;
     }
   }
 
@@ -80,7 +82,7 @@ const CTACards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
-      grid-column: span 8;
+      grid-column: 2/span 10;
     }
   }
 

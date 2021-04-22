@@ -65,12 +65,15 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 50px 15%;
+  padding: 13% 20%;
+  padding-right: 22%;
   position: relative;
   text-align: center;
   ${({ theme }) => theme.mediaQueries.sm}{
-    padding: 50px 90px;
-    background-size: 100% 492px;
+    background-size: 100% 485px;
+  }
+  ${({ theme }) => theme.mediaQueries.xs} {
+    background-size: 100% 510px;
   }
 `
 const BottomBar = ()=>{

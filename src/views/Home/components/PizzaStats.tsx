@@ -11,7 +11,7 @@ import CardValue from './CardValue'
 const StyledPizzaStats = styled(Card)`
   text-align: center;
   border-radius: 0;
-  width: min( 365px, 100% ) !important;
+  /*width: min( 365px, 100% ) !important;*/
   background-color:rgba(0,0,0,1);
   margin-top: 0px;
   margin-left: 0;

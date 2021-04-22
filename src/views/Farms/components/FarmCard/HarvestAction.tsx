@@ -16,7 +16,7 @@ const HarvestButton = styled(Button)`
   background-size: 100% 100% !important;
   background-repeat: no-repeat;
   padding-top: 5px;
-  box-shadow: none;
+  box-shadow: none !important;
 `
 
 const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {

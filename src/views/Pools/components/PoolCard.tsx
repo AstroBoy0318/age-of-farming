@@ -113,7 +113,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const {colors} = useContext(ThemeContext)
 
   return (
-    <Card isActive={isCardActive} isFinished={isFinished && pastaId !== 0}>
+    <Card isActive={isCardActive} isFinished={isFinished && pastaId !== 0} style={{minWidth: "400px"}}>
       {isFinished && pastaId !== 0 && <PoolFinishedSash />}
       <div style={{ padding: '24px 13% 0 10%' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>

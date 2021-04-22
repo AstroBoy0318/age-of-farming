@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback } from 'react'
+import styled from 'styled-components'
+import { BaseLayout } from '@pizzafinance/ui-sdk'
 import { Route, useRouteMatch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Image, Heading } from '@pizzafinance/ui-sdk'
 import { BLOCKS_PER_YEAR, PIZZA_PER_BLOCK, PIZZA_POOL_PID } from 'config'
-import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import { useFarms, usePriceBnbBusd, usePricePizzaBusd, usePriceBusdBnb, 
   usePriceCakeBnb, usePriceEthBnb } from 'state/hooks'
@@ -15,8 +15,46 @@ import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
 import useI18n from 'hooks/useI18n'
 import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
-import FarmTabButtons from './components/FarmTabButtons'
-import Divider from './components/Divider'
+
+const FarmCards = styled(BaseLayout)`
+  align-items: stretch;
+  justify-content: stretch;
+  margin-bottom: 48px;
+
+  & > div {
+    grid-column: span 8;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  ${({ theme }) => theme.mediaQueries.xs} {
+    & > div {
+      grid-column: span 12;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    & > div {
+      grid-column: 2/span 10;
+    }
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
+    & > div {
+      grid-column: span 6;
+    }
+  }
+  ${({ theme }) => theme.mediaQueries.lg} {
+    & > div {
+      grid-column: span 6;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    & > div {
+      grid-column: span 4;
+    }
+  }
+`
 
 const Farms: React.FC = () => {
   const { path } = useRouteMatch()
@@ -112,14 +150,14 @@ const Farms: React.FC = () => {
     <Page style={{backgroundImage: "url(/images/mainback_farms.jpg)"}}>
       {/* <FarmTabButtons /> */}
       <div style={{marginTop: "30px"}}>
-        <FlexLayout>
+        <FarmCards>
           <Route exact path={`${path}`}>
             {farmsList(activeFarms, false)}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsList(inactiveFarms, true)}
           </Route>
-        </FlexLayout>
+        </FarmCards>
       </div>
     </Page>
   )
